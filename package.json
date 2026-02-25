@@ -3,10 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "predev": "scripts\\cleanup-temp.bat",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "clean": "del /s /q tmpclaude-* 2>nul & del \"\\\\?\\%CD%\\nul\" 2>nul || true"
   },
   "dependencies": {
     "next": "^15.1.0",
