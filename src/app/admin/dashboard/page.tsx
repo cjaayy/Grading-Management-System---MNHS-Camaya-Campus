@@ -35,8 +35,8 @@ export default function AdminDashboard() {
               <Users className="w-5 h-5 text-amber-600" />
             </div>
             <div>
-              <p className="text-sm text-text-light">Total Sections</p>
-              <p className="text-xl font-bold text-text">36</p>
+              <p className="text-sm text-text-light">Tracks & Strands</p>
+              <p className="text-xl font-bold text-text">8</p>
             </div>
           </div>
         </div>
@@ -53,6 +53,64 @@ export default function AdminDashboard() {
         </div>
       </div>
 
+      {/* Strand Enrollment Overview */}
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+          <h2 className="text-lg font-semibold text-text mb-4">
+            Academic Track
+          </h2>
+          <div className="space-y-3">
+            {[
+              { strand: "STEM", full: "Science, Technology, Engineering, and Mathematics", students: 320 },
+              { strand: "ABM", full: "Accountancy, Business, and Management", students: 280 },
+              { strand: "HUMSS", full: "Humanities and Social Sciences", students: 245 },
+              { strand: "GAS", full: "General Academic Strand", students: 150 },
+            ].map((item) => (
+              <div
+                key={item.strand}
+                className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0"
+              >
+                <div>
+                  <p className="text-sm font-semibold text-text">
+                    {item.strand}
+                  </p>
+                  <p className="text-xs text-text-light">{item.full}</p>
+                </div>
+                <span className="text-sm font-medium text-text">
+                  {item.students} students
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
+          <h2 className="text-lg font-semibold text-text mb-4">TVL Track</h2>
+          <div className="space-y-3">
+            {[
+              { strand: "Home Economics", full: "Cookery, Bread & Pastry, Food & Beverage Services", students: 85 },
+              { strand: "ICT", full: "Information and Communications Technology", students: 95 },
+              { strand: "Agri-Fishery Arts", full: "Agriculture and Fishery", students: 35 },
+              { strand: "Industrial Arts", full: "Welding, Automotive, Electrical", students: 35 },
+            ].map((item) => (
+              <div
+                key={item.strand}
+                className="flex items-center justify-between py-2 border-b border-gray-50 last:border-0"
+              >
+                <div>
+                  <p className="text-sm font-semibold text-text">
+                    {item.strand}
+                  </p>
+                  <p className="text-xs text-text-light">{item.full}</p>
+                </div>
+                <span className="text-sm font-medium text-text">
+                  {item.students} students
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+
       {/* Recent Activity */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
         <h2 className="text-lg font-semibold text-text mb-4">
@@ -62,22 +120,22 @@ export default function AdminDashboard() {
           {[
             {
               action: "Grades submitted",
-              detail: "Grade 10 - Einstein, Mathematics",
+              detail: "Grade 11 - STEM A, General Mathematics",
               time: "2 hours ago",
             },
             {
               action: "New student enrolled",
-              detail: "Santos, Maria B. - Grade 9",
+              detail: "Santos, Maria B. - Grade 11 ABM",
               time: "5 hours ago",
             },
             {
               action: "Teacher account created",
-              detail: "Mr. Reyes, Pedro C.",
+              detail: "Mr. Reyes, Pedro C. - STEM Department",
               time: "1 day ago",
             },
             {
               action: "Section created",
-              detail: "Grade 7 - Mabini",
+              detail: "Grade 12 - HUMSS B",
               time: "2 days ago",
             },
           ].map((activity, i) => (

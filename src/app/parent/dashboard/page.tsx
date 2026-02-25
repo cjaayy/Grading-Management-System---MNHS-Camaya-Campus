@@ -1,4 +1,10 @@
-import { GraduationCap, TrendingUp, BookOpen, Calendar } from "lucide-react";
+import {
+  GraduationCap,
+  TrendingUp,
+  BookOpen,
+  Calendar,
+  Layers,
+} from "lucide-react";
 
 export default function ParentDashboard() {
   return (
@@ -10,14 +16,22 @@ export default function ParentDashboard() {
         <h2 className="text-lg font-semibold text-text mb-3">
           Child Information
         </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
           <div>
             <p className="text-sm text-text-light">Student Name</p>
             <p className="font-medium text-text">Dela Cruz, Juan A.</p>
           </div>
           <div>
-            <p className="text-sm text-text-light">Section</p>
-            <p className="font-medium text-text">Grade 10 - Einstein</p>
+            <p className="text-sm text-text-light">Grade Level & Section</p>
+            <p className="font-medium text-text">Grade 11 - STEM A</p>
+          </div>
+          <div>
+            <p className="text-sm text-text-light">Track</p>
+            <p className="font-medium text-text">Academic</p>
+          </div>
+          <div>
+            <p className="text-sm text-text-light">Strand</p>
+            <p className="font-medium text-text">STEM</p>
           </div>
         </div>
       </div>
@@ -31,7 +45,7 @@ export default function ParentDashboard() {
             </div>
             <div>
               <p className="text-sm text-text-light">Enrolled Subjects</p>
-              <p className="text-xl font-bold text-text">8</p>
+              <p className="text-xl font-bold text-text">9</p>
             </div>
           </div>
         </div>
@@ -42,7 +56,7 @@ export default function ParentDashboard() {
             </div>
             <div>
               <p className="text-sm text-text-light">General Average</p>
-              <p className="text-xl font-bold text-text">89.5</p>
+              <p className="text-xl font-bold text-text">91.2</p>
             </div>
           </div>
         </div>
@@ -52,8 +66,8 @@ export default function ParentDashboard() {
               <GraduationCap className="w-5 h-5 text-green-600" />
             </div>
             <div>
-              <p className="text-sm text-text-light">Grade Level</p>
-              <p className="text-xl font-bold text-text">Grade 10</p>
+              <p className="text-sm text-text-light">Semester</p>
+              <p className="text-xl font-bold text-text">1st Sem</p>
             </div>
           </div>
         </div>
@@ -70,6 +84,23 @@ export default function ParentDashboard() {
         </div>
       </div>
 
+      {/* Track & Strand Badge */}
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 mb-8">
+        <div className="flex items-center gap-3">
+          <div className="bg-primary/10 p-2 rounded-lg">
+            <Layers className="w-5 h-5 text-primary" />
+          </div>
+          <div>
+            <p className="text-sm text-text-light">
+              Academic Track - STEM Strand
+            </p>
+            <p className="text-xs text-text-light mt-0.5">
+              Science, Technology, Engineering, and Mathematics
+            </p>
+          </div>
+        </div>
+      </div>
+
       {/* Quick Grade Overview */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
         <h2 className="text-lg font-semibold text-text mb-4">Grade Summary</h2>
@@ -81,10 +112,10 @@ export default function ParentDashboard() {
                   Subject
                 </th>
                 <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Q1
+                  Midterm
                 </th>
                 <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Q2
+                  Finals
                 </th>
                 <th className="text-center py-3 px-4 text-text-light font-medium">
                   Status
@@ -93,10 +124,11 @@ export default function ParentDashboard() {
             </thead>
             <tbody>
               {[
-                { subject: "Mathematics", q1: 90, q2: 88 },
-                { subject: "Science", q1: 92, q2: 91 },
-                { subject: "English", q1: 87, q2: 85 },
-                { subject: "Filipino", q1: 93, q2: 90 },
+                { subject: "Oral Communication", midterm: 92, finals: "--" },
+                { subject: "General Mathematics", midterm: 90, finals: "--" },
+                { subject: "Earth and Life Science", midterm: 93, finals: "--" },
+                { subject: "Pre-Calculus", midterm: 88, finals: "--" },
+                { subject: "General Biology 1", midterm: 91, finals: "--" },
               ].map((row) => (
                 <tr
                   key={row.subject}
@@ -105,8 +137,12 @@ export default function ParentDashboard() {
                   <td className="py-3 px-4 font-medium text-text">
                     {row.subject}
                   </td>
-                  <td className="py-3 px-4 text-center text-text">{row.q1}</td>
-                  <td className="py-3 px-4 text-center text-text">{row.q2}</td>
+                  <td className="py-3 px-4 text-center text-text">
+                    {row.midterm}
+                  </td>
+                  <td className="py-3 px-4 text-center text-text-light">
+                    {row.finals}
+                  </td>
                   <td className="py-3 px-4 text-center">
                     <span className="text-xs px-2 py-1 rounded-full bg-green-100 text-green-700">
                       Passed

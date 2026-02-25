@@ -59,19 +59,31 @@ export default function TeacherDashboard() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
           {[
             {
-              section: "Grade 10 - Einstein",
-              subject: "Mathematics",
+              section: "Grade 11 - STEM A",
+              subject: "General Mathematics",
+              track: "Academic",
+              strand: "STEM",
               students: 42,
             },
             {
-              section: "Grade 10 - Newton",
-              subject: "Mathematics",
+              section: "Grade 11 - STEM B",
+              subject: "General Mathematics",
+              track: "Academic",
+              strand: "STEM",
               students: 40,
             },
-            { section: "Grade 9 - Rizal", subject: "Science", students: 38 },
             {
-              section: "Grade 9 - Bonifacio",
-              subject: "Science",
+              section: "Grade 12 - ABM A",
+              subject: "Business Mathematics",
+              track: "Academic",
+              strand: "ABM",
+              students: 38,
+            },
+            {
+              section: "Grade 11 - HUMSS A",
+              subject: "Statistics and Probability",
+              track: "Academic",
+              strand: "HUMSS",
               students: 36,
             },
           ].map((cls) => (
@@ -81,9 +93,17 @@ export default function TeacherDashboard() {
             >
               <h3 className="font-semibold text-text">{cls.section}</h3>
               <p className="text-sm text-text-light">{cls.subject}</p>
-              <p className="text-xs text-text-light mt-2">
-                {cls.students} students
-              </p>
+              <div className="flex items-center gap-2 mt-2">
+                <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">
+                  {cls.track}
+                </span>
+                <span className="text-xs px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-medium">
+                  {cls.strand}
+                </span>
+                <span className="text-xs text-text-light ml-auto">
+                  {cls.students} students
+                </span>
+              </div>
             </div>
           ))}
         </div>

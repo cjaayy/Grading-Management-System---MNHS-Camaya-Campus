@@ -1,9 +1,33 @@
-import { GraduationCap, BookOpen, TrendingUp, Calendar } from "lucide-react";
+import {
+  GraduationCap,
+  BookOpen,
+  TrendingUp,
+  Calendar,
+  Layers,
+} from "lucide-react";
 
 export default function StudentDashboard() {
   return (
     <div>
       <h1 className="text-2xl font-bold text-text mb-6">Student Dashboard</h1>
+
+      {/* Track & Strand Info */}
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 mb-6">
+        <div className="flex items-center gap-3 mb-3">
+          <div className="bg-primary/10 p-2 rounded-lg">
+            <Layers className="w-5 h-5 text-primary" />
+          </div>
+          <div>
+            <p className="text-sm text-text-light">Track & Strand</p>
+            <p className="font-semibold text-text">
+              Academic Track - STEM
+            </p>
+          </div>
+        </div>
+        <p className="text-xs text-text-light">
+          Science, Technology, Engineering, and Mathematics
+        </p>
+      </div>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
@@ -14,7 +38,7 @@ export default function StudentDashboard() {
             </div>
             <div>
               <p className="text-sm text-text-light">Enrolled Subjects</p>
-              <p className="text-xl font-bold text-text">8</p>
+              <p className="text-xl font-bold text-text">9</p>
             </div>
           </div>
         </div>
@@ -25,7 +49,7 @@ export default function StudentDashboard() {
             </div>
             <div>
               <p className="text-sm text-text-light">General Average</p>
-              <p className="text-xl font-bold text-text">89.5</p>
+              <p className="text-xl font-bold text-text">91.2</p>
             </div>
           </div>
         </div>
@@ -36,7 +60,7 @@ export default function StudentDashboard() {
             </div>
             <div>
               <p className="text-sm text-text-light">Grade Level</p>
-              <p className="text-xl font-bold text-text">Grade 10</p>
+              <p className="text-xl font-bold text-text">Grade 11</p>
             </div>
           </div>
         </div>
@@ -55,7 +79,10 @@ export default function StudentDashboard() {
 
       {/* Recent Grades Preview */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-        <h2 className="text-lg font-semibold text-text mb-4">Recent Grades</h2>
+        <h2 className="text-lg font-semibold text-text mb-1">Recent Grades</h2>
+        <p className="text-xs text-text-light mb-4">
+          1st Semester | STEM Strand Subjects
+        </p>
         <div className="overflow-x-auto">
           <table className="w-full text-sm">
             <thead>
@@ -64,56 +91,23 @@ export default function StudentDashboard() {
                   Subject
                 </th>
                 <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Q1
+                  Midterm
                 </th>
                 <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Q2
+                  Finals
                 </th>
                 <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Q3
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Q4
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Final
+                  Final Grade
                 </th>
               </tr>
             </thead>
             <tbody>
               {[
-                {
-                  subject: "Mathematics",
-                  q1: 90,
-                  q2: 88,
-                  q3: "--",
-                  q4: "--",
-                  final: "--",
-                },
-                {
-                  subject: "Science",
-                  q1: 92,
-                  q2: 91,
-                  q3: "--",
-                  q4: "--",
-                  final: "--",
-                },
-                {
-                  subject: "English",
-                  q1: 87,
-                  q2: 85,
-                  q3: "--",
-                  q4: "--",
-                  final: "--",
-                },
-                {
-                  subject: "Filipino",
-                  q1: 93,
-                  q2: 90,
-                  q3: "--",
-                  q4: "--",
-                  final: "--",
-                },
+                { subject: "Oral Communication", midterm: 92, finals: "--", final: "--" },
+                { subject: "General Mathematics", midterm: 90, finals: "--", final: "--" },
+                { subject: "Earth and Life Science", midterm: 93, finals: "--", final: "--" },
+                { subject: "Pre-Calculus", midterm: 88, finals: "--", final: "--" },
+                { subject: "General Biology 1", midterm: 91, finals: "--", final: "--" },
               ].map((row) => (
                 <tr
                   key={row.subject}
@@ -122,13 +116,11 @@ export default function StudentDashboard() {
                   <td className="py-3 px-4 font-medium text-text">
                     {row.subject}
                   </td>
-                  <td className="py-3 px-4 text-center text-text">{row.q1}</td>
-                  <td className="py-3 px-4 text-center text-text">{row.q2}</td>
-                  <td className="py-3 px-4 text-center text-text-light">
-                    {row.q3}
+                  <td className="py-3 px-4 text-center text-text">
+                    {row.midterm}
                   </td>
                   <td className="py-3 px-4 text-center text-text-light">
-                    {row.q4}
+                    {row.finals}
                   </td>
                   <td className="py-3 px-4 text-center text-text-light">
                     {row.final}

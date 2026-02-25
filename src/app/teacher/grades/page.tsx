@@ -3,18 +3,42 @@
 import { useState } from "react";
 
 const sections = [
-  { id: "10-einstein", label: "Grade 10 - Einstein", subject: "Mathematics" },
-  { id: "10-newton", label: "Grade 10 - Newton", subject: "Mathematics" },
-  { id: "9-rizal", label: "Grade 9 - Rizal", subject: "Science" },
-  { id: "9-bonifacio", label: "Grade 9 - Bonifacio", subject: "Science" },
+  {
+    id: "11-stem-a",
+    label: "G11 - STEM A",
+    subject: "General Mathematics",
+    track: "Academic",
+    strand: "STEM",
+  },
+  {
+    id: "11-stem-b",
+    label: "G11 - STEM B",
+    subject: "General Mathematics",
+    track: "Academic",
+    strand: "STEM",
+  },
+  {
+    id: "12-abm-a",
+    label: "G12 - ABM A",
+    subject: "Business Mathematics",
+    track: "Academic",
+    strand: "ABM",
+  },
+  {
+    id: "11-humss-a",
+    label: "G11 - HUMSS A",
+    subject: "Statistics and Probability",
+    track: "Academic",
+    strand: "HUMSS",
+  },
 ];
 
 const sampleStudents = [
-  { name: "Dela Cruz, Juan A.", q1: 90, q2: 88 },
-  { name: "Santos, Maria B.", q1: 92, q2: 91 },
-  { name: "Reyes, Pedro C.", q1: 85, q2: 87 },
-  { name: "Garcia, Ana D.", q1: 88, q2: 90 },
-  { name: "Mendoza, Carlos E.", q1: 78, q2: 82 },
+  { name: "Dela Cruz, Juan A.", midterm: 90, finals: 88 },
+  { name: "Santos, Maria B.", midterm: 92, finals: 91 },
+  { name: "Reyes, Pedro C.", midterm: 85, finals: 87 },
+  { name: "Garcia, Ana D.", midterm: 88, finals: 90 },
+  { name: "Mendoza, Carlos E.", midterm: 78, finals: 82 },
 ];
 
 export default function TeacherGrades() {
@@ -26,7 +50,7 @@ export default function TeacherGrades() {
     <div>
       <h1 className="text-2xl font-bold text-text mb-2">Grade Management</h1>
       <p className="text-text-light mb-6">
-        View and manage student grades by section
+        View and manage student grades by section and strand
       </p>
 
       {/* Section Selector */}
@@ -52,6 +76,14 @@ export default function TeacherGrades() {
           <div>
             <h2 className="text-lg font-semibold text-text">{current.label}</h2>
             <p className="text-sm text-text-light">{current.subject}</p>
+            <div className="flex items-center gap-2 mt-1">
+              <span className="text-xs px-2 py-0.5 rounded-full bg-primary/10 text-primary font-medium">
+                {current.track}
+              </span>
+              <span className="text-xs px-2 py-0.5 rounded-full bg-secondary/10 text-secondary font-medium">
+                {current.strand}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -63,42 +95,55 @@ export default function TeacherGrades() {
                   Student Name
                 </th>
                 <th className="text-center py-3 px-4 text-text-light font-medium">
-                  1st Quarter
+                  Midterm
                 </th>
                 <th className="text-center py-3 px-4 text-text-light font-medium">
-                  2nd Quarter
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  3rd Quarter
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  4th Quarter
+                  Finals
                 </th>
                 <th className="text-center py-3 px-4 text-text-light font-medium">
                   Final Grade
                 </th>
+                <th className="text-center py-3 px-4 text-text-light font-medium">
+                  Remarks
+                </th>
               </tr>
             </thead>
             <tbody>
-              {sampleStudents.map((student) => (
-                <tr
-                  key={student.name}
-                  className="border-b border-gray-50 hover:bg-gray-50/50"
-                >
-                  <td className="py-3 px-4 font-medium text-text">
-                    {student.name}
-                  </td>
-                  <td className="py-3 px-4 text-center text-text">
-                    {student.q1}
-                  </td>
-                  <td className="py-3 px-4 text-center text-text">
-                    {student.q2}
-                  </td>
-                  <td className="py-3 px-4 text-center text-text-light">--</td>
-                  <td className="py-3 px-4 text-center text-text-light">--</td>
-                  <td className="py-3 px-4 text-center text-text-light">--</td>
-                </tr>
-              ))}
+              {sampleStudents.map((student) => {
+                const finalGrade = Math.round(
+                  (student.midterm + student.finals) / 2,
+                );
+                return (
+                  <tr
+                    key={student.name}
+                    className="border-b border-gray-50 hover:bg-gray-50/50"
+                  >
+                    <td className="py-3 px-4 font-medium text-text">
+                      {student.name}
+                    </td>
+                    <td className="py-3 px-4 text-center text-text">
+                      {student.midterm}
+                    </td>
+                    <td className="py-3 px-4 text-center text-text">
+                      {student.finals}
+                    </td>
+                    <td className="py-3 px-4 text-center font-semibold text-text">
+                      {finalGrade}
+                    </td>
+                    <td className="py-3 px-4 text-center">
+                      <span
+                        className={`text-xs px-2 py-1 rounded-full font-medium ${
+                          finalGrade >= 75
+                            ? "bg-green-100 text-green-700"
+                            : "bg-red-100 text-red-700"
+                        }`}
+                      >
+                        {finalGrade >= 75 ? "Passed" : "Failed"}
+                      </span>
+                    </td>
+                  </tr>
+                );
+              })}
             </tbody>
           </table>
         </div>
