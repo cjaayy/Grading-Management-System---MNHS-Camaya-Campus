@@ -5,11 +5,13 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Mail, Lock, Eye, EyeOff, Loader2, AlertCircle } from "lucide-react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 import RoleSelector from "./RoleSelector";
 import { loginSchema, type LoginFormData } from "@/lib/validations/auth";
 import type { Role } from "@/types/auth";
 
 export default function LoginForm() {
+  const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
   const [selectedRole, setSelectedRole] = useState<Role>("student");
   const [loginError, setLoginError] = useState<string | null>(null);
@@ -31,9 +33,7 @@ export default function LoginForm() {
     setLoginError(null);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      setLoginError(
-        "Authentication service not configured yet. This is a UI demo.",
-      );
+      router.push(`/${selectedRole}/dashboard`);
     } catch {
       setLoginError("An unexpected error occurred. Please try again.");
     }
