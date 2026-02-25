@@ -3,7 +3,7 @@ import LoginForm from "@/components/auth/LoginForm";
 import BrandingSection from "@/components/auth/BrandingSection";
 
 export const metadata: Metadata = {
-  title: "Login - Grading Management System",
+  title: "Grading Management System",
   description: "Secure login for MNHS Camaya Campus Grading Management System",
 };
 

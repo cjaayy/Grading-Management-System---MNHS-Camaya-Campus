@@ -10,6 +10,9 @@ export const metadata: Metadata = {
   title: "Grading Management System - MNHS Camaya Campus",
   description:
     "Secure grading management system for Mariveles National High School - Camaya Campus",
+  icons: {
+    icon: "/images/favicon.png",
+  },
 };
 
 export default function RootLayout({
