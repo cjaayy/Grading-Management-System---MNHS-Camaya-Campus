@@ -19,9 +19,7 @@ export default function StudentDashboard() {
           </div>
           <div>
             <p className="text-sm text-text-light">Track & Strand</p>
-            <p className="font-semibold text-text">
-              Academic Track - STEM
-            </p>
+            <p className="font-semibold text-text">Academic Track - STEM</p>
           </div>
         </div>
         <p className="text-xs text-text-light">
@@ -103,11 +101,36 @@ export default function StudentDashboard() {
             </thead>
             <tbody>
               {[
-                { subject: "Oral Communication", midterm: 92, finals: "--", final: "--" },
-                { subject: "General Mathematics", midterm: 90, finals: "--", final: "--" },
-                { subject: "Earth and Life Science", midterm: 93, finals: "--", final: "--" },
-                { subject: "Pre-Calculus", midterm: 88, finals: "--", final: "--" },
-                { subject: "General Biology 1", midterm: 91, finals: "--", final: "--" },
+                {
+                  subject: "Oral Communication",
+                  midterm: 92,
+                  finals: "--",
+                  final: "--",
+                },
+                {
+                  subject: "General Mathematics",
+                  midterm: 90,
+                  finals: "--",
+                  final: "--",
+                },
+                {
+                  subject: "Earth and Life Science",
+                  midterm: 93,
+                  finals: "--",
+                  final: "--",
+                },
+                {
+                  subject: "Pre-Calculus",
+                  midterm: 88,
+                  finals: "--",
+                  final: "--",
+                },
+                {
+                  subject: "General Biology 1",
+                  midterm: 91,
+                  finals: "--",
+                  final: "--",
+                },
               ].map((row) => (
                 <tr
                   key={row.subject}

@@ -126,7 +126,11 @@ export default function ParentDashboard() {
               {[
                 { subject: "Oral Communication", midterm: 92, finals: "--" },
                 { subject: "General Mathematics", midterm: 90, finals: "--" },
-                { subject: "Earth and Life Science", midterm: 93, finals: "--" },
+                {
+                  subject: "Earth and Life Science",
+                  midterm: 93,
+                  finals: "--",
+                },
                 { subject: "Pre-Calculus", midterm: 88, finals: "--" },
                 { subject: "General Biology 1", midterm: 91, finals: "--" },
               ].map((row) => (

@@ -61,9 +61,21 @@ export default function AdminDashboard() {
           </h2>
           <div className="space-y-3">
             {[
-              { strand: "STEM", full: "Science, Technology, Engineering, and Mathematics", students: 320 },
-              { strand: "ABM", full: "Accountancy, Business, and Management", students: 280 },
-              { strand: "HUMSS", full: "Humanities and Social Sciences", students: 245 },
+              {
+                strand: "STEM",
+                full: "Science, Technology, Engineering, and Mathematics",
+                students: 320,
+              },
+              {
+                strand: "ABM",
+                full: "Accountancy, Business, and Management",
+                students: 280,
+              },
+              {
+                strand: "HUMSS",
+                full: "Humanities and Social Sciences",
+                students: 245,
+              },
               { strand: "GAS", full: "General Academic Strand", students: 150 },
             ].map((item) => (
               <div
@@ -87,10 +99,26 @@ export default function AdminDashboard() {
           <h2 className="text-lg font-semibold text-text mb-4">TVL Track</h2>
           <div className="space-y-3">
             {[
-              { strand: "Home Economics", full: "Cookery, Bread & Pastry, Food & Beverage Services", students: 85 },
-              { strand: "ICT", full: "Information and Communications Technology", students: 95 },
-              { strand: "Agri-Fishery Arts", full: "Agriculture and Fishery", students: 35 },
-              { strand: "Industrial Arts", full: "Welding, Automotive, Electrical", students: 35 },
+              {
+                strand: "Home Economics",
+                full: "Cookery, Bread & Pastry, Food & Beverage Services",
+                students: 85,
+              },
+              {
+                strand: "ICT",
+                full: "Information and Communications Technology",
+                students: 95,
+              },
+              {
+                strand: "Agri-Fishery Arts",
+                full: "Agriculture and Fishery",
+                students: 35,
+              },
+              {
+                strand: "Industrial Arts",
+                full: "Welding, Automotive, Electrical",
+                students: 35,
+              },
             ].map((item) => (
               <div
                 key={item.strand}
