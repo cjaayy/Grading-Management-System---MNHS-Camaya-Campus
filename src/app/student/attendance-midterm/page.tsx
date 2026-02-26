@@ -105,78 +105,82 @@ export default function AttendanceMidtermPage() {
       </div>
 
       {/* Attendance Table */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-        <h2 className="text-lg font-semibold text-text mb-1">
-          Attendance per Subject
-        </h2>
-        <p className="text-xs text-text-light mb-4">
-          Midterm period attendance records
-        </p>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-gray-200">
-                <th className="text-left py-3 px-4 text-text-light font-medium">
-                  Subject
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Present
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Absent
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Late
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Total Days
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Rate
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {attendanceData.map((row) => {
-                const rate = ((row.present / row.total) * 100).toFixed(0);
-                return (
-                  <tr
-                    key={row.subject}
-                    className="border-b border-gray-50 hover:bg-gray-50/50"
-                  >
-                    <td className="py-3 px-4 font-medium text-text">
-                      {row.subject}
-                    </td>
-                    <td className="py-3 px-4 text-center text-green-600 font-medium">
-                      {row.present}
-                    </td>
-                    <td className="py-3 px-4 text-center text-red-500 font-medium">
-                      {row.absent}
-                    </td>
-                    <td className="py-3 px-4 text-center text-yellow-500 font-medium">
-                      {row.late}
-                    </td>
-                    <td className="py-3 px-4 text-center text-text">
-                      {row.total}
-                    </td>
-                    <td className="py-3 px-4 text-center">
-                      <span
-                        className={`text-xs px-2 py-1 rounded-full font-medium ${
-                          Number(rate) >= 95
-                            ? "bg-green-100 text-green-700"
-                            : Number(rate) >= 85
-                              ? "bg-yellow-100 text-yellow-700"
-                              : "bg-red-100 text-red-700"
-                        }`}
-                      >
-                        {rate}%
-                      </span>
-                    </td>
-                  </tr>
-                );
-              })}
-            </tbody>
-          </table>
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="bg-primary px-6 py-4">
+          <h2 className="text-lg font-semibold text-white">
+            Attendance per Subject
+          </h2>
+          <p className="text-xs text-white/70">
+            Midterm period attendance records
+          </p>
+        </div>
+        <div className="p-6">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-3 px-4 text-text-light font-medium">
+                    Subject
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Present
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Absent
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Late
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Total Days
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Rate
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {attendanceData.map((row) => {
+                  const rate = ((row.present / row.total) * 100).toFixed(0);
+                  return (
+                    <tr
+                      key={row.subject}
+                      className="border-b border-gray-50 hover:bg-gray-50/50"
+                    >
+                      <td className="py-3 px-4 font-medium text-text">
+                        {row.subject}
+                      </td>
+                      <td className="py-3 px-4 text-center text-green-600 font-medium">
+                        {row.present}
+                      </td>
+                      <td className="py-3 px-4 text-center text-red-500 font-medium">
+                        {row.absent}
+                      </td>
+                      <td className="py-3 px-4 text-center text-yellow-500 font-medium">
+                        {row.late}
+                      </td>
+                      <td className="py-3 px-4 text-center text-text">
+                        {row.total}
+                      </td>
+                      <td className="py-3 px-4 text-center">
+                        <span
+                          className={`text-xs px-2 py-1 rounded-full font-medium ${
+                            Number(rate) >= 95
+                              ? "bg-green-100 text-green-700"
+                              : Number(rate) >= 85
+                                ? "bg-yellow-100 text-yellow-700"
+                                : "bg-red-100 text-red-700"
+                          }`}
+                        >
+                          {rate}%
+                        </span>
+                      </td>
+                    </tr>
+                  );
+                })}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

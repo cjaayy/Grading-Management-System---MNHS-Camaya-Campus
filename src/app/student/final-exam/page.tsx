@@ -104,112 +104,120 @@ export default function FinalExamPage() {
       </div>
 
       {/* Core Subjects */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-6">
-        <h2 className="text-lg font-semibold text-text mb-1">Core Subjects</h2>
-        <p className="text-xs text-text-light mb-4">Final examination scores</p>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-gray-200">
-                <th className="text-left py-3 px-4 text-text-light font-medium">
-                  Subject
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Written Works
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Performance Tasks
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Quarterly Exam
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Final Grade
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {coreSubjects.map((row) => (
-                <tr
-                  key={row.subject}
-                  className="border-b border-gray-50 hover:bg-gray-50/50"
-                >
-                  <td className="py-3 px-4 font-medium text-text">
-                    {row.subject}
-                  </td>
-                  <td className="py-3 px-4 text-center text-text-light">
-                    {row.written}
-                  </td>
-                  <td className="py-3 px-4 text-center text-text-light">
-                    {row.performance}
-                  </td>
-                  <td className="py-3 px-4 text-center text-text-light">
-                    {row.quarterly}
-                  </td>
-                  <td className="py-3 px-4 text-center font-semibold text-text-light">
-                    {row.total}
-                  </td>
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-6">
+        <div className="bg-primary px-6 py-4">
+          <h2 className="text-lg font-semibold text-white">Core Subjects</h2>
+          <p className="text-xs text-white/70">Final examination scores</p>
+        </div>
+        <div className="p-6">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-3 px-4 text-text-light font-medium">
+                    Subject
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Written Works
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Performance Tasks
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Quarterly Exam
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Final Grade
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {coreSubjects.map((row) => (
+                  <tr
+                    key={row.subject}
+                    className="border-b border-gray-50 hover:bg-gray-50/50"
+                  >
+                    <td className="py-3 px-4 font-medium text-text">
+                      {row.subject}
+                    </td>
+                    <td className="py-3 px-4 text-center text-text-light">
+                      {row.written}
+                    </td>
+                    <td className="py-3 px-4 text-center text-text-light">
+                      {row.performance}
+                    </td>
+                    <td className="py-3 px-4 text-center text-text-light">
+                      {row.quarterly}
+                    </td>
+                    <td className="py-3 px-4 text-center font-semibold text-text-light">
+                      {row.total}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
       {/* Specialized Subjects */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-        <h2 className="text-lg font-semibold text-text mb-1">
-          Specialized Subjects
-        </h2>
-        <p className="text-xs text-text-light mb-4">
-          STEM strand-specific final scores
-        </p>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-gray-200">
-                <th className="text-left py-3 px-4 text-text-light font-medium">
-                  Subject
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Written Works
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Performance Tasks
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Quarterly Exam
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Final Grade
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {specializedSubjects.map((row) => (
-                <tr
-                  key={row.subject}
-                  className="border-b border-gray-50 hover:bg-gray-50/50"
-                >
-                  <td className="py-3 px-4 font-medium text-text">
-                    {row.subject}
-                  </td>
-                  <td className="py-3 px-4 text-center text-text-light">
-                    {row.written}
-                  </td>
-                  <td className="py-3 px-4 text-center text-text-light">
-                    {row.performance}
-                  </td>
-                  <td className="py-3 px-4 text-center text-text-light">
-                    {row.quarterly}
-                  </td>
-                  <td className="py-3 px-4 text-center font-semibold text-text-light">
-                    {row.total}
-                  </td>
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="bg-primary px-6 py-4">
+          <h2 className="text-lg font-semibold text-white">
+            Specialized Subjects
+          </h2>
+          <p className="text-xs text-white/70">
+            STEM strand-specific final scores
+          </p>
+        </div>
+        <div className="p-6">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-3 px-4 text-text-light font-medium">
+                    Subject
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Written Works
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Performance Tasks
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Quarterly Exam
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Final Grade
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {specializedSubjects.map((row) => (
+                  <tr
+                    key={row.subject}
+                    className="border-b border-gray-50 hover:bg-gray-50/50"
+                  >
+                    <td className="py-3 px-4 font-medium text-text">
+                      {row.subject}
+                    </td>
+                    <td className="py-3 px-4 text-center text-text-light">
+                      {row.written}
+                    </td>
+                    <td className="py-3 px-4 text-center text-text-light">
+                      {row.performance}
+                    </td>
+                    <td className="py-3 px-4 text-center text-text-light">
+                      {row.quarterly}
+                    </td>
+                    <td className="py-3 px-4 text-center font-semibold text-text-light">
+                      {row.total}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
     </div>

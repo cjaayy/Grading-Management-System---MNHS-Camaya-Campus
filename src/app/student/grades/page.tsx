@@ -10,10 +10,20 @@ const semesters = [
 const coreSubjects = [
   { subject: "Oral Communication", midterm: 92, finals: 90, final: 91 },
   { subject: "Reading and Writing", midterm: 89, finals: "--", final: "--" },
-  { subject: "Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino", midterm: 93, finals: "--", final: "--" },
+  {
+    subject: "Komunikasyon at Pananaliksik sa Wika at Kulturang Pilipino",
+    midterm: 93,
+    finals: "--",
+    final: "--",
+  },
   { subject: "General Mathematics", midterm: 90, finals: "--", final: "--" },
   { subject: "Earth and Life Science", midterm: 93, finals: "--", final: "--" },
-  { subject: "Physical Education and Health 1", midterm: 95, finals: "--", final: "--" },
+  {
+    subject: "Physical Education and Health 1",
+    midterm: 95,
+    finals: "--",
+    final: "--",
+  },
 ];
 
 const specializedSubjects = [
@@ -50,122 +60,127 @@ export default function StudentGrades() {
       </div>
 
       {/* Core Subjects */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6 mb-6">
-        <h2 className="text-lg font-semibold text-text mb-1">Core Subjects</h2>
-        <p className="text-xs text-text-light mb-4">
-          Required subjects for all SHS students
-        </p>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-gray-200">
-                <th className="text-left py-3 px-4 text-text-light font-medium">
-                  Subject
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Midterm
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Finals
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Final Grade
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Remarks
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {coreSubjects.map((row) => (
-                <tr
-                  key={row.subject}
-                  className="border-b border-gray-50 hover:bg-gray-50/50"
-                >
-                  <td className="py-3 px-4 font-medium text-text">
-                    {row.subject}
-                  </td>
-                  <td className="py-3 px-4 text-center text-text">
-                    {row.midterm}
-                  </td>
-                  <td className="py-3 px-4 text-center text-text-light">
-                    {row.finals}
-                  </td>
-                  <td className="py-3 px-4 text-center font-semibold text-text-light">
-                    {row.final}
-                  </td>
-                  <td className="py-3 px-4 text-center">
-                    <span className="text-xs px-2 py-1 rounded-full bg-green-100 text-green-700">
-                      Passed
-                    </span>
-                  </td>
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden mb-6">
+        <div className="bg-primary px-6 py-4">
+          <h2 className="text-lg font-semibold text-white">Core Subjects</h2>
+          <p className="text-xs text-white/70">
+            Required subjects for all SHS students
+          </p>
+        </div>
+        <div className="p-6">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-3 px-4 text-text-light font-medium">
+                    Subject
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Midterm
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Finals
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Final Grade
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Remarks
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+              <tbody>
+                {coreSubjects.map((row) => (
+                  <tr
+                    key={row.subject}
+                    className="border-b border-gray-50 hover:bg-gray-50/50"
+                  >
+                    <td className="py-3 px-4 font-medium text-text">
+                      {row.subject}
+                    </td>
+                    <td className="py-3 px-4 text-center text-text">
+                      {row.midterm}
+                    </td>
+                    <td className="py-3 px-4 text-center text-text-light">
+                      {row.finals}
+                    </td>
+                    <td className="py-3 px-4 text-center font-semibold text-text-light">
+                      {row.final}
+                    </td>
+                    <td className="py-3 px-4 text-center">
+                      <span className="text-xs px-2 py-1 rounded-full bg-green-100 text-green-700">
+                        Passed
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
         </div>
       </div>
 
       {/* Specialized Subjects */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-6">
-        <h2 className="text-lg font-semibold text-text mb-1">
-          Specialized Subjects
-        </h2>
-        <p className="text-xs text-text-light mb-4">
-          STEM strand-specific subjects
-        </p>
-        <div className="overflow-x-auto">
-          <table className="w-full text-sm">
-            <thead>
-              <tr className="border-b border-gray-200">
-                <th className="text-left py-3 px-4 text-text-light font-medium">
-                  Subject
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Midterm
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Finals
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Final Grade
-                </th>
-                <th className="text-center py-3 px-4 text-text-light font-medium">
-                  Remarks
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {specializedSubjects.map((row) => (
-                <tr
-                  key={row.subject}
-                  className="border-b border-gray-50 hover:bg-gray-50/50"
-                >
-                  <td className="py-3 px-4 font-medium text-text">
-                    {row.subject}
-                  </td>
-                  <td className="py-3 px-4 text-center text-text">
-                    {row.midterm}
-                  </td>
-                  <td className="py-3 px-4 text-center text-text-light">
-                    {row.finals}
-                  </td>
-                  <td className="py-3 px-4 text-center font-semibold text-text-light">
-                    {row.final}
-                  </td>
-                  <td className="py-3 px-4 text-center">
-                    <span className="text-xs px-2 py-1 rounded-full bg-green-100 text-green-700">
-                      Passed
-                    </span>
-                  </td>
-                </tr>
-              ))}
-            </tbody>
-          </table>
+      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+        <div className="bg-primary px-6 py-4">
+          <h2 className="text-lg font-semibold text-white">
+            Specialized Subjects
+          </h2>
+          <p className="text-xs text-white/70">STEM strand-specific subjects</p>
         </div>
-
+        <div className="p-6">
+          <div className="overflow-x-auto">
+            <table className="w-full text-sm">
+              <thead>
+                <tr className="border-b border-gray-200">
+                  <th className="text-left py-3 px-4 text-text-light font-medium">
+                    Subject
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Midterm
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Finals
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Final Grade
+                  </th>
+                  <th className="text-center py-3 px-4 text-text-light font-medium">
+                    Remarks
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {specializedSubjects.map((row) => (
+                  <tr
+                    key={row.subject}
+                    className="border-b border-gray-50 hover:bg-gray-50/50"
+                  >
+                    <td className="py-3 px-4 font-medium text-text">
+                      {row.subject}
+                    </td>
+                    <td className="py-3 px-4 text-center text-text">
+                      {row.midterm}
+                    </td>
+                    <td className="py-3 px-4 text-center text-text-light">
+                      {row.finals}
+                    </td>
+                    <td className="py-3 px-4 text-center font-semibold text-text-light">
+                      {row.final}
+                    </td>
+                    <td className="py-3 px-4 text-center">
+                      <span className="text-xs px-2 py-1 rounded-full bg-green-100 text-green-700">
+                        Passed
+                      </span>
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </div>
         {/* General Average */}
-        <div className="mt-6 flex justify-end">
+        <div className="px-6 pb-6 flex justify-end">
           <div className="bg-primary/5 rounded-lg px-6 py-3 text-right">
             <p className="text-sm text-text-light">General Average</p>
             <p className="text-2xl font-bold text-primary">91.2</p>
