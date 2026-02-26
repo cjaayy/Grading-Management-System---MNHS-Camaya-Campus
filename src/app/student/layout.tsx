@@ -1,4 +1,4 @@
-import TopNav from "@/components/dashboard/TopNav";
+import { TopHeader, SubNav } from "@/components/dashboard/TopNav";
 
 export default function StudentLayout({
   children,
@@ -7,7 +7,8 @@ export default function StudentLayout({
 }) {
   return (
     <div className="min-h-screen bg-bg-light">
-      <TopNav role="student" />
+      <TopHeader role="student" />
+      <SubNav role="student" />
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         {children}
       </main>
