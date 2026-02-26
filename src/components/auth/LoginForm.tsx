@@ -3,18 +3,42 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Mail, Lock, Eye, EyeOff, Loader2, AlertCircle } from "lucide-react";
+import {
+  Mail,
+  Lock,
+  Eye,
+  EyeOff,
+  Loader2,
+  AlertCircle,
+  GraduationCap,
+  BookOpen,
+  ShieldCheck,
+  Users,
+  ArrowLeft,
+} from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
-import RoleSelector from "./RoleSelector";
 import { loginSchema, type LoginFormData } from "@/lib/validations/auth";
 import type { Role } from "@/types/auth";
 
-export default function LoginForm() {
+const roleInfo: Record<Role, { label: string; icon: typeof GraduationCap }> = {
+  student: { label: "Student", icon: GraduationCap },
+  teacher: { label: "Teacher", icon: BookOpen },
+  admin: { label: "Admin", icon: ShieldCheck },
+  parent: { label: "Parent", icon: Users },
+};
+
+interface LoginFormProps {
+  role: Role;
+}
+
+export default function LoginForm({ role }: LoginFormProps) {
   const router = useRouter();
   const [showPassword, setShowPassword] = useState(false);
-  const [selectedRole, setSelectedRole] = useState<Role>("student");
   const [loginError, setLoginError] = useState<string | null>(null);
+
+  const { label, icon: RoleIcon } = roleInfo[role];
 
   const {
     register,
@@ -33,7 +57,7 @@ export default function LoginForm() {
     setLoginError(null);
     try {
       await new Promise((resolve) => setTimeout(resolve, 1500));
-      router.push(`/${selectedRole}/dashboard`);
+      router.push(`/${role}/dashboard`);
     } catch {
       setLoginError("An unexpected error occurred. Please try again.");
     }
@@ -57,18 +81,28 @@ export default function LoginForm() {
         <p className="text-sm text-text-light">Grading Management System</p>
       </div>
 
-      {/* Form Header */}
-      <div className="mb-8">
-        <h2 className="text-2xl font-bold text-text">Welcome Back!</h2>
-        <p className="text-text-light mt-1">Sign in to access your account</p>
-      </div>
+      {/* Back to role selection */}
+      <Link
+        href="/"
+        className="inline-flex items-center gap-1.5 text-sm text-text-light hover:text-secondary transition-colors mb-6"
+      >
+        <ArrowLeft className="w-4 h-4" />
+        Back to role selection
+      </Link>
 
-      {/* Role Selector */}
-      <div className="mb-6">
-        <label className="block text-sm font-medium text-text mb-2">
-          I am a...
-        </label>
-        <RoleSelector selected={selectedRole} onChange={setSelectedRole} />
+      {/* Form Header with role indicator */}
+      <div className="mb-8">
+        <div className="flex items-center gap-3 mb-2">
+          <div className="rounded-lg bg-secondary/10 p-2">
+            <RoleIcon className="w-6 h-6 text-secondary" />
+          </div>
+          <div>
+            <h2 className="text-2xl font-bold text-text">{label} Sign In</h2>
+            <p className="text-text-light text-sm mt-0.5">
+              Sign in to access your account
+            </p>
+          </div>
+        </div>
       </div>
 
       {/* Error Message */}

@@ -1,13 +1,24 @@
-import { Metadata } from "next";
+"use client";
+
+import { useSearchParams } from "next/navigation";
+import { redirect } from "next/navigation";
+import { Suspense } from "react";
 import LoginForm from "@/components/auth/LoginForm";
 import BrandingSection from "@/components/auth/BrandingSection";
+import type { Role } from "@/types/auth";
 
-export const metadata: Metadata = {
-  title: "Grading Management System",
-  description: "Secure login for MNHS Camaya Campus Grading Management System",
-};
+const validRoles: Role[] = ["student", "teacher", "admin", "parent"];
 
-export default function LoginPage() {
+function LoginContent() {
+  const searchParams = useSearchParams();
+  const roleParam = searchParams.get("role");
+
+  if (!roleParam || !validRoles.includes(roleParam as Role)) {
+    redirect("/");
+  }
+
+  const role = roleParam as Role;
+
   return (
     <div className="flex min-h-screen bg-gradient-to-br from-white to-bg-light">
       {/* Left Side - Branding (hidden on mobile) */}
@@ -15,8 +26,16 @@ export default function LoginPage() {
 
       {/* Right Side - Login Form */}
       <div className="flex-1 flex items-center justify-center px-6 py-12 lg:px-12">
-        <LoginForm />
+        <LoginForm role={role} />
       </div>
     </div>
+  );
+}
+
+export default function LoginPage() {
+  return (
+    <Suspense>
+      <LoginContent />
+    </Suspense>
   );
 }
