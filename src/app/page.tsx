@@ -1,30 +1,29 @@
 import Image from "next/image";
 import Link from "next/link";
-import { GraduationCap, BookOpen, ShieldCheck, Users } from "lucide-react";
 
 const roles = [
   {
     id: "student",
     label: "Student",
-    icon: GraduationCap,
+    icon: "school",
     description: "View your grades and academic progress",
   },
   {
     id: "teacher",
     label: "Teacher",
-    icon: BookOpen,
+    icon: "menu_book",
     description: "Manage classes and student grades",
   },
   {
     id: "admin",
     label: "Admin",
-    icon: ShieldCheck,
+    icon: "verified_user",
     description: "System administration and reports",
   },
   {
     id: "parent",
     label: "Parent",
-    icon: Users,
+    icon: "group",
     description: "Monitor your child's academic performance",
   },
 ];
@@ -75,14 +74,16 @@ export default function Home() {
         </p>
 
         <div className="grid grid-cols-2 gap-4 w-full max-w-md">
-          {roles.map(({ id, label, icon: Icon, description }) => (
+          {roles.map(({ id, label, icon, description }) => (
             <Link
               key={id}
               href={`/login?role=${id}`}
               className="group flex flex-col items-center gap-3 rounded-xl border-2 border-white/20 bg-white/10 backdrop-blur-sm px-4 py-6 text-white transition-all hover:border-secondary hover:bg-white/20 hover:scale-105 hover:shadow-lg"
             >
               <div className="rounded-full bg-white/15 p-3 transition-colors group-hover:bg-secondary/30">
-                <Icon className="w-8 h-8" />
+                <span className="material-symbols-outlined text-3xl">
+                  {icon}
+                </span>
               </div>
               <span className="text-base font-semibold">{label}</span>
               <span className="text-xs text-white/60 leading-tight">

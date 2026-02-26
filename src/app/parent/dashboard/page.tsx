@@ -1,11 +1,3 @@
-import {
-  GraduationCap,
-  TrendingUp,
-  BookOpen,
-  Calendar,
-  Layers,
-} from "lucide-react";
-
 export default function ParentDashboard() {
   return (
     <div>
@@ -41,7 +33,9 @@ export default function ParentDashboard() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
           <div className="flex items-center gap-3">
             <div className="bg-secondary/10 p-2.5 rounded-lg">
-              <BookOpen className="w-5 h-5 text-secondary" />
+              <span className="material-symbols-outlined text-xl text-secondary">
+                menu_book
+              </span>
             </div>
             <div>
               <p className="text-sm text-text-light">Enrolled Subjects</p>
@@ -52,7 +46,9 @@ export default function ParentDashboard() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
           <div className="flex items-center gap-3">
             <div className="bg-primary/10 p-2.5 rounded-lg">
-              <TrendingUp className="w-5 h-5 text-primary" />
+              <span className="material-symbols-outlined text-xl text-primary">
+                trending_up
+              </span>
             </div>
             <div>
               <p className="text-sm text-text-light">General Average</p>
@@ -63,7 +59,9 @@ export default function ParentDashboard() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
           <div className="flex items-center gap-3">
             <div className="bg-green-100 p-2.5 rounded-lg">
-              <GraduationCap className="w-5 h-5 text-green-600" />
+              <span className="material-symbols-outlined text-xl text-green-600">
+                school
+              </span>
             </div>
             <div>
               <p className="text-sm text-text-light">Semester</p>
@@ -74,7 +72,9 @@ export default function ParentDashboard() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
           <div className="flex items-center gap-3">
             <div className="bg-amber-100 p-2.5 rounded-lg">
-              <Calendar className="w-5 h-5 text-amber-600" />
+              <span className="material-symbols-outlined text-xl text-amber-600">
+                calendar_month
+              </span>
             </div>
             <div>
               <p className="text-sm text-text-light">School Year</p>
@@ -88,7 +88,9 @@ export default function ParentDashboard() {
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5 mb-8">
         <div className="flex items-center gap-3">
           <div className="bg-primary/10 p-2 rounded-lg">
-            <Layers className="w-5 h-5 text-primary" />
+            <span className="material-symbols-outlined text-xl text-primary">
+              layers
+            </span>
           </div>
           <div>
             <p className="text-sm text-text-light">

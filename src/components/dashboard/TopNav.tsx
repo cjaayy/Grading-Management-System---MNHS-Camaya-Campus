@@ -2,15 +2,7 @@
 
 import { usePathname, useRouter } from "next/navigation";
 import Image from "next/image";
-import {
-  LayoutDashboard,
-  ClipboardList,
-  LogOut,
-  FileText,
-  CalendarCheck,
-} from "lucide-react";
 import type { Role } from "@/types/auth";
-import type { LucideIcon } from "lucide-react";
 
 const roleLabels: Record<Role, string> = {
   student: "Student",
@@ -22,7 +14,7 @@ const roleLabels: Record<Role, string> = {
 interface NavTab {
   label: string;
   href: string;
-  icon: LucideIcon;
+  icon: string;
 }
 
 interface TopNavProps {
@@ -34,12 +26,12 @@ function getTabsForRole(role: Role): NavTab[] {
     {
       label: "Dashboard",
       href: `/${role}/dashboard`,
-      icon: LayoutDashboard,
+      icon: "dashboard",
     },
     {
       label: "Grades",
       href: `/${role}/grades`,
-      icon: ClipboardList,
+      icon: "assignment",
     },
   ];
 
@@ -49,22 +41,22 @@ function getTabsForRole(role: Role): NavTab[] {
       {
         label: "Midterm Exam",
         href: `/${role}/midterm-exam`,
-        icon: FileText,
+        icon: "description",
       },
       {
         label: "Final Exam",
         href: `/${role}/final-exam`,
-        icon: FileText,
+        icon: "description",
       },
       {
         label: "Attendance (Midterm)",
         href: `/${role}/attendance-midterm`,
-        icon: CalendarCheck,
+        icon: "event_available",
       },
       {
         label: "Attendance (Finals)",
         href: `/${role}/attendance-finals`,
-        icon: CalendarCheck,
+        icon: "event_available",
       },
     ];
   }
@@ -109,7 +101,9 @@ export function TopHeader({ role }: TopNavProps) {
               onClick={handleLogout}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-white/70 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
             >
-              <LogOut className="w-4 h-4" />
+              <span className="material-symbols-outlined text-base">
+                logout
+              </span>
               <span className="hidden sm:inline">Logout</span>
             </button>
           </div>
@@ -129,7 +123,6 @@ export function SubNav({ role }: TopNavProps) {
         <nav className="flex items-center gap-1 overflow-x-auto py-2">
           {tabs.map((tab) => {
             const isActive = pathname === tab.href;
-            const Icon = tab.icon;
             return (
               <a
                 key={tab.href}
@@ -140,7 +133,9 @@ export function SubNav({ role }: TopNavProps) {
                     : "text-text-light hover:bg-gray-100 hover:text-text"
                 }`}
               >
-                <Icon className="w-4 h-4" />
+                <span className="material-symbols-outlined text-base">
+                  {tab.icon}
+                </span>
                 {tab.label}
               </a>
             );
@@ -186,7 +181,6 @@ export default function TopNav({ role }: TopNavProps) {
           <nav className="flex items-center gap-1">
             {tabs.map((tab) => {
               const isActive = pathname === tab.href;
-              const Icon = tab.icon;
               return (
                 <a
                   key={tab.href}
@@ -197,7 +191,9 @@ export default function TopNav({ role }: TopNavProps) {
                       : "text-white/70 hover:bg-white/10 hover:text-white"
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
+                  <span className="material-symbols-outlined text-base">
+                    {tab.icon}
+                  </span>
                   {tab.label}
                 </a>
               );
@@ -213,7 +209,9 @@ export default function TopNav({ role }: TopNavProps) {
               onClick={handleLogout}
               className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm text-white/70 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
             >
-              <LogOut className="w-4 h-4" />
+              <span className="material-symbols-outlined text-base">
+                logout
+              </span>
               <span className="hidden sm:inline">Logout</span>
             </button>
           </div>

@@ -1,5 +1,3 @@
-import { Users, BookOpen, ClipboardList, Calendar } from "lucide-react";
-
 export default function TeacherDashboard() {
   return (
     <div>
@@ -10,7 +8,9 @@ export default function TeacherDashboard() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
           <div className="flex items-center gap-3">
             <div className="bg-secondary/10 p-2.5 rounded-lg">
-              <Users className="w-5 h-5 text-secondary" />
+              <span className="material-symbols-outlined text-xl text-secondary">
+                group
+              </span>
             </div>
             <div>
               <p className="text-sm text-text-light">Total Students</p>
@@ -21,7 +21,9 @@ export default function TeacherDashboard() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
           <div className="flex items-center gap-3">
             <div className="bg-primary/10 p-2.5 rounded-lg">
-              <BookOpen className="w-5 h-5 text-primary" />
+              <span className="material-symbols-outlined text-xl text-primary">
+                menu_book
+              </span>
             </div>
             <div>
               <p className="text-sm text-text-light">Subjects Handled</p>
@@ -32,7 +34,9 @@ export default function TeacherDashboard() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
           <div className="flex items-center gap-3">
             <div className="bg-amber-100 p-2.5 rounded-lg">
-              <ClipboardList className="w-5 h-5 text-amber-600" />
+              <span className="material-symbols-outlined text-xl text-amber-600">
+                assignment
+              </span>
             </div>
             <div>
               <p className="text-sm text-text-light">Pending Grades</p>
@@ -43,7 +47,9 @@ export default function TeacherDashboard() {
         <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-5">
           <div className="flex items-center gap-3">
             <div className="bg-green-100 p-2.5 rounded-lg">
-              <Calendar className="w-5 h-5 text-green-600" />
+              <span className="material-symbols-outlined text-xl text-green-600">
+                calendar_month
+              </span>
             </div>
             <div>
               <p className="text-sm text-text-light">School Year</p>
